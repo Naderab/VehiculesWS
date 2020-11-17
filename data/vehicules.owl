@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/nader/ontologies/2020/10/untitled-ontology-8#"
+     xml:base="http://www.semanticweb.org/nader/ontologies/2020/10/untitled-ontology-8"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vehicules="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#"
+     xmlns:untitled-ontology-8="http://www.semanticweb.org/nader/ontologies/2020/10/untitled-ontology-8#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#libelle -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#libelle"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#consomme -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#consomme">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Carburant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#contient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#contient">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Bougie"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Piston"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Soupapes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#entraine -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#entraine">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Boite"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Boite"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Roues"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#est_compose_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#est_compose_de">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Radiateur"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Roues"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#est_fabrique_par -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#est_fabrique_par">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#couleur -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#couleur">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#nom -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#nom">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#nombreDePortes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#nombreDePortes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#pays -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#pays">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Auto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Auto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Boite"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#BasDeGamme -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#BasDeGamme">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Berline -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Berline">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Boite -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Boite">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Bougie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Bougie"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Carburant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Carburant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Citadine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Citadine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Coupee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Coupee">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Diesel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Diesel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Carburant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Electrique -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Electrique">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Carburant"/>
+        <vehicules:libelle>Electrique</vehicules:libelle>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Carburant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#HauteGamme -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#HauteGamme">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Hybride -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Hybride">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Carburant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Boite"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Moteur"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MoyenneGamme -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MoyenneGamme">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Marque"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Piston -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Piston"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Radiateur -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Radiateur"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Roues -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Roues"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#SUV -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#SUV">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Semi-auto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Semi-auto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Boite"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Soupapes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Soupapes"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#pick-up -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#pick-up">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Voiture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#12 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#12">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#6 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#6">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#8 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#8">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Cylindree"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Auto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Auto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#CHERRY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#CHERRY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#BasDeGamme"/>
+        <vehicules:nom>cherry</vehicules:nom>
+        <vehicules:pays>chine</vehicules:pays>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#CHERRY_QQ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#CHERRY_QQ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Citadine"/>
+        <vehicules:consomme rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4"/>
+        <vehicules:est_fabrique_par rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#CHERRY"/>
+        <vehicules:couleur>Noir</vehicules:couleur>
+        <vehicules:nombreDePortes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</vehicules:nombreDePortes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Diesel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Diesel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#FIAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#FIAT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MoyenneGamme"/>
+        <vehicules:nom>Fiat</vehicules:nom>
+        <vehicules:pays>Italia</vehicules:pays>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Hybrid -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Hybrid">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Hybride"/>
+        <vehicules:libelle>Hybride</vehicules:libelle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#KUV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#KUV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#SUV"/>
+        <vehicules:consomme rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4"/>
+        <vehicules:est_fabrique_par rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MAHINDRA"/>
+        <vehicules:couleur>rouge</vehicules:couleur>
+        <vehicules:pays rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</vehicules:pays>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#LAND_ROVER -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#LAND_ROVER">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#HauteGamme"/>
+        <vehicules:nom>Land rover</vehicules:nom>
+        <vehicules:pays>Angleterre</vehicules:pays>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MAHINDRA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MAHINDRA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#BasDeGamme"/>
+        <vehicules:nom>Mahindra</vehicules:nom>
+        <vehicules:pays>Indie</vehicules:pays>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MERCEDES_BENZ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MERCEDES_BENZ">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#HauteGamme"/>
+        <vehicules:nom>Mercedes</vehicules:nom>
+        <vehicules:pays>Allemange</vehicules:pays>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#RENAULT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#RENAULT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MoyenneGamme"/>
+        <vehicules:nom>Renault</vehicules:nom>
+        <vehicules:pays>France</vehicules:pays>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Range_rover_sport -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Range_rover_sport">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#SUV"/>
+        <vehicules:consomme rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Hybrid"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Auto"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#12"/>
+        <vehicules:est_fabrique_par rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#LAND_ROVER"/>
+        <vehicules:couleur>noir</vehicules:couleur>
+        <vehicules:nombreDePortes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</vehicules:nombreDePortes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Semi_Auto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Semi_Auto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Semi-auto"/>
+        <vehicules:libelle>Semi auto</vehicules:libelle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Tipo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Tipo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Berline"/>
+        <vehicules:consomme rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4"/>
+        <vehicules:est_fabrique_par rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#FIAT"/>
+        <vehicules:couleur>blanc</vehicules:couleur>
+        <vehicules:nombreDePortes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</vehicules:nombreDePortes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#class_c -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#class_c">
+        <vehicules:consomme rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Auto"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#8"/>
+        <vehicules:est_fabrique_par rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#MERCEDES_BENZ"/>
+        <vehicules:couleur>Blanc</vehicules:couleur>
+        <vehicules:nombreDePortes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</vehicules:nombreDePortes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#clio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#clio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Citadine"/>
+        <vehicules:consomme rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Diesel"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Semi_Auto"/>
+        <vehicules:est_compose_de rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#6"/>
+        <vehicules:est_fabrique_par rdf:resource="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#RENAULT"/>
+        <vehicules:couleur>bleu</vehicules:couleur>
+        <vehicules:nombreDePortes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</vehicules:nombreDePortes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#12"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#6"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#8"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Auto">
+        <vehicules:libelle>Auto</vehicules:libelle>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Diesel">
+        <vehicules:libelle>Diesel</vehicules:libelle>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Essence">
+        <vehicules:libelle>Essence</vehicules:libelle>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#Manuelle">
+        <vehicules:libelle>Manuelle</vehicules:libelle>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#12">
+        <vehicules:libelle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</vehicules:libelle>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#4">
+        <vehicules:libelle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</vehicules:libelle>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#6">
+        <vehicules:libelle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</vehicules:libelle>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#8">
+        <vehicules:libelle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</vehicules:libelle>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
