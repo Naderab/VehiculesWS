@@ -1,9 +1,3 @@
 PREFIX ns: <http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT ?voitures
-WHERE {
-?v rdf:type ns:MoyenneGamme .
-?v ns:couleur ?voitures
-}
-
-
+select ?voitures WHERE {?voitures rdf:type ns:HauteGamme }

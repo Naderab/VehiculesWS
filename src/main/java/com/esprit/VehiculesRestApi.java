@@ -9,16 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+ 
+
 import java.io.OutputStream;
 import org.apache.jena.ontology.*;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.rdf.model.StmtIterator;
 import org.json.simple.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -97,6 +105,7 @@ public class VehiculesRestApi {
                 OntClass sub = (OntClass) subIter.next();
                     JSONObject obj = new JSONObject();
                     obj.put("URI",sub.getURI());
+                    obj.put("name",sub.getLocalName());
                     list.add(obj);
 
 
@@ -191,8 +200,7 @@ public class VehiculesRestApi {
                 JSONObject obj = new JSONObject();
                 obj.put("propertyName",property.getLocalName());
 
-                    obj.put("propertyType",property.getRDFType().getLocalName());
-                    obj.put("value",property.getPropertyValue(property.getLocalName()));
+                obj.put("propertyType",property.getRDFType().getLocalName());
 
                 if(property.getDomain()!=null)
                     obj.put("domain", property.getDomain().getLocalName());
@@ -259,13 +267,40 @@ public class VehiculesRestApi {
             System.out.println(classURI);
             OntClass personne = model.getOntClass(classURI );
             Iterator subIter = personne.listInstances();
+        	JSONObject obj = new JSONObject();
+
             while (subIter.hasNext()) {
                 Individual   sub = (Individual) subIter.next();
+                StmtIterator it = sub.listProperties();
+
+                while ( it.hasNext()) {
+                       Statement s = (Statement) it.next();    
+
+                    if (s.getObject().isLiteral()) {
+
+                        obj.put("name",sub.getLocalName());
+                        //Sobj.put("name",sub.getProperty(null));
+                        obj.put("type",s.getPredicate().getLocalName());
+
+                        obj.put("value",s.getLiteral().getLexicalForm().toString());
+
+                        obj.put("uri",sub.getURI());
+                        //System.out.println(""+s.getLiteral().getLexicalForm().toString()+" type = "+s.getPredicate().getLocalName());
+
+                        }
+
+
+                    else   {
+                        obj.put("name",sub.getLocalName());
+                        //Sobj.put("name",sub.getProperty(null));obj.put("value",s.getLiteral().getLexicalForm().toString());
+
+                        obj.put("uri",sub.getURI());
+                    } //System.out.println(""+s.getObject().toString().substring(53)+" type = "+s.getPredicate().getLocalName());
+
+
+                         }
                 System.out.println(sub);
-                JSONObject obj = new JSONObject();
-                obj.put("name",sub.getLocalName());
                 
-                obj.put("uri",sub.getURI());
                 list.add(obj);
 
             }
@@ -319,6 +354,8 @@ public class VehiculesRestApi {
 
     @RequestMapping(value = "/query",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public List<JSONObject> query() {
+    	
+		   
         List<JSONObject> list=new ArrayList();
         String fileName = "data/vehicules.owl";
         try {
@@ -327,28 +364,25 @@ public class VehiculesRestApi {
             OntModel model = ModelFactory
                     .createOntologyModel(OntModelSpec.OWL_DL_MEM);
             model.read(reader,null);
-            String r = "PREFIX ns: <http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#>"
-            		+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
-            		+ "SELECT ?voitures"
-            		+ "WHERE {"
-            		+ "?voitures ns:est_compose_de ns:Semi_Auto ."
-            		+ "}";
-            String sprql = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" +
-                    "select * {?x ?y ?z}";
-            Query query = QueryFactory.create(r);
-            QueryExecution qe = QueryExecutionFactory.create(query, model);
+            String querygetPays =
+   	    	     "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +        
+   	    	     "PREFIX vec: <http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#>  " +
+   	    	     "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+
+   	    	     " SELECT ?MoyenneGamme ?nom " +
+   	    	     " WHERE { ?MoyenneGamme vec:nom ?nom    } " ;
+           
+            //Query query = QueryFactory.create(req1);
+            QueryExecution qe = QueryExecutionFactory.create(querygetPays, model);
             ResultSet resultSet = qe.execSelect();
            int x=0;
             while (resultSet.hasNext()) {
                 x++;
                 JSONObject obj = new JSONObject();
                 QuerySolution solution = resultSet.nextSolution();
-                System.out.println(solution.get("x").toString());
-                obj.put("subject",solution.get("voitures").toString());
-                //obj.put("property",solution.get("y").toString());
+                //System.out.println(solution.get("x").toString());
+                obj.put("IRI",solution.get("MoyenneGamme").toString());
+                obj.put("property",solution.get("nom").toString());
                 //obj.put("object",solution.get("z").toString());
                 list.add(obj);
             }
@@ -361,6 +395,85 @@ public class VehiculesRestApi {
         }
         return null;
     }
+    @RequestMapping(value = "/getVehicules",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<JSONObject> queryGetallInstance() {
+    	
+		   
+        List<JSONObject> list=new ArrayList();
+        String fileName = "data/vehicules.owl";
+        try {
+            File file = new File(fileName);
+            FileReader reader = new FileReader(file);
+            OntModel model = ModelFactory
+                    .createOntologyModel(OntModelSpec.OWL_DL_MEM);
+            model.read(reader,null);
+            String querygetPays =
+   	    	     "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +        
+   	    	     "PREFIX vec: <http://www.semanticweb.org/nader/ontologies/2020/10/vehicules#>  " +
+   	    	     "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
+
+   	    	     " SELECT ?voiture  ?consomme ?fabriquant ?couleur ?nbporte" +
+   	    	     " WHERE { ?voiture vec:consomme ?consomme .  ?voiture vec:est_fabrique_par ?fabriquant . ?voiture vec:couleur ?couleur . ?voiture vec:nombreDePortes ?nbporte .  } " ;
+           
+            //Query query = QueryFactory.create(req1);
+            QueryExecution qe = QueryExecutionFactory.create(querygetPays, model);
+            ResultSet resultSet = qe.execSelect();
+           int x=0;
+            while (resultSet.hasNext()) {
+                x++;
+                JSONObject obj = new JSONObject();
+                QuerySolution solution = resultSet.nextSolution();
+                //System.out.println(solution.get("x").toString());
+                obj.put("id",x);
+
+                obj.put("label",solution.get("voiture").toString().substring(solution.get("voiture").toString().indexOf('#')+1));
+                //obj.put("type",solution.get("type").toString().substring(solution.get("type").toString().indexOf('#')+1));
+                obj.put("consomme",solution.get("consomme").toString().substring(solution.get("consomme").toString().indexOf('#')+1));
+                obj.put("fabriquePar ",solution.get("fabriquant").toString().substring(solution.get("fabriquant").toString().indexOf('#')+1));
+                obj.put("couleur",solution.get("couleur").toString());
+                obj.put("nombredePorte",solution.get("nbporte").toString().substring(0, 1));
+                //obj.put("property",solution.get("nom").toString());
+                //obj.put("object",solution.get("z").toString());
+                list.add(obj);
+            }
+            System.out.println(x);
+            return list;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public String getContents(File aFile) {
+    	 //...checks on aFile are elided
+    	 StringBuilder contents = new StringBuilder();
+    	 try {
+    	 //use buffering, reading one line at a time
+    	 //FileReader always assumes default encoding is OK!
+    	 BufferedReader input = new BufferedReader(new
+    	FileReader(aFile));
+    	 try {
+    	 String line = null; //not declared within while loop
+    	/*
+    	 * readLine is a bit quirky :
+    	* it returns the content of a line MINUS the newline.
+    	* it returns null only for the END of the stream.
+    	* it returns an empty String if two newlines appear in a
+    	row.
+    	 */
+    	 while ((line = input.readLine()) != null) {
+    	 contents.append(line);
+    	contents.append(System.getProperty("line.separator"));
+    	 }
+    	 } finally {
+    	 input.close();
+    	 }
+    	 } catch (IOException ex) {
+    	 ex.printStackTrace();
+    	 }
+    	 return contents.toString();
+    	 }
 
 }
 
